@@ -1,6 +1,115 @@
-// 
 // SPCH 1321 - Social Media Marketing Project
 // Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia
-// 
 
 <!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>210Fest - Music Festival</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,600&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding 0; }
+
+      :root {
+        --dark:    #1a1208;
+        --darker:  #110d05;
+        --gold:    #d4a017;
+        --orange:  #c94f1e;
+        --cream:   #f5ead5;
+        --muted:   #9e8a6a;
+        --border:  rgba(212,160,23,0.25);
+      }
+
+      html {scroll-behavior: smooth; }
+
+      body {
+        background: var(--dark);
+        color: var(--cream);
+        font-family: 'Barlow Condensed', sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* -- NAVBAR -- */
+      nav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+        display: flex; allign-items: center; justidy-content: space-between;
+        padding: 0 2.5rem;
+        height: 60px;
+        background: var(--darker);
+        border-bottom: 2px solid var(--orange);
+      }
+
+      .nav-logo {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 1.4rem;
+        letter-spacing: 0.02em;
+        color: var(--cream);
+        text-decoration: none;
+      }
+      .nav-logo em { font-style: italic; color: var(--gold); }
+
+      .nav-links { display: flex; gap: 2.trem; list-style: none; }
+      .nav-links a {
+        text-decoration: none;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--cream)opacity: 0.8;
+        transition: opacity .2s;
+      }
+      .nav-links a:hover { opacity: 1; }
+
+      .btn-nav {
+        background: var(--orange);
+        color: #fff;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 0.55rem 1.3rem;
+        border: none; cursor: pointer;
+        text-decoration: nonel;
+        transition: background .2s;
+      }
+      .btn-nav:hover{ background: #a83e12: }
+
+      /* hero */
+      .hero {
+        min-height: 100vh;
+        display: flex; flex-direction: column;
+        allign-items: center; justify-content: center;
+        text-allign: center;
+        padding: 100px 2rem 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before, .hero::after, .hero-ring {
+        content: '':
+        position: absolute:
+        border-raqdius: 50%;
+        border: 1px solid var(--border);
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+      .hero::before { width: 520px; height: 520px; }
+      .hero::after  { width: 760px; height: 760px; opacity: .6; }
+      .hero-ring    { width: 1020px; height: 1020px; opacity: .35; }
+
+      .dot-strip {
+        position: absolute; bottom: 24px; left: 50%;
+        transform: translate(-50%);
+        display: flex; gap: 10px;
+      }
+      
+      
+      
+      
+
+      
+        
+    </style>
+  </head>
