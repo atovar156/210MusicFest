@@ -20,7 +20,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
        Reset
        Removes default browser margin/padding on all elements
       *******************************************************/
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding 0; }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       /********************************************
       Colors Used (If group wants to retheme)
@@ -63,7 +63,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
       /* -- NAVBAR -- */
       nav {
         position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-        display: flex; allign-items: center; justidy-content: space-between;
+        display: flex; align-items: center; justify-content: space-between;
         padding: 0 2.5rem;
         height: 60px;
         background: var(--darker);
@@ -84,13 +84,13 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
       .nav-logo em { font-style: italic; color: var(--gold); }
       
       /* Navigation links - Lineup - Schedule, Tickets, About */
-      .nav-links { display: flex; gap: 2.trem; list-style: none; }
+      .nav-links { display: flex; gap: 2rem; list-style: none; }
       .nav-links a {
         text-decoration: none;
         font-size: 0.78rem;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: var(--cream)opacity: 0.8;
+        color: var(--cream); opacity: 0.8;
         transition: opacity .2s;
       }
       .nav-links a:hover { opacity: 1; } /* brighten on hover */
@@ -106,10 +106,10 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
         text-transform: uppercase;
         padding: 0.55rem 1.3rem;
         border: none; cursor: pointer;
-        text-decoration: nonel;
+        text-decoration: none;
         transition: background .2s;
       }
-      .btn-nav:hover { background: #a83e12: } /* darker on hover */
+      .btn-nav:hover { background: #a83e12; } /* darker on hover */
 
       /**********************************************************
       HERO SECTION - full screen center panel with title and info
@@ -118,7 +118,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
         min-height: 100vh;         /* fills entire screen height */
         display: flex; 
         flex-direction: column;
-        allign-items: center; 
+        align-items: center; 
         justify-content: center;
         text-allign: center;
         padding: 100px 2rem 4rem;  /* top padding clears the navbar */
@@ -128,9 +128,9 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
 
       /*  decorative circles behind title || small inner, medium middle and large outer ring */
       .hero::before, .hero::after, .hero-ring {
-        content: '':
-        position: absolute:
-        border-raqdius: 50%;
+        content: '';
+        position: absolute;
+        border-radius: 50%;
         border: 1px solid var(--border);
         top: 50%; left: 50%;
         transform: translate(-50%, -50%);
@@ -147,7 +147,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
         display: flex; gap: 10px;
       }
       .dot-strip span {
-        width: 8px; height 8px; border-radius: 50%;
+        width: 8px; height: 8px; border-radius: 50%;
         background: var(--orange); opacity: 0.45;
       }
       .dot-strip span.active { opacity: 1; } /* first dot is full bright */
@@ -157,7 +157,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
         display: flex; align-items: center; gap: 1rem;
         font-size: 0.70rem;
         letter-spacing: 0.28em;
-        text-tranform: uppercase;
+        text-transform: uppercase;
         color: var(--muted);
         margin-bottom: 0.4rem;
       }
@@ -236,7 +236,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
       .info-cell .label {
         font-size: 0.6rem;
         letter-spacing: 0.22em;
-        text-transform: upppercase;
+        text-transform: uppercase;
         color: var(--orange);
         margin-bottom: 0.35rem;
       }
@@ -250,7 +250,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
 
       /* CTA button row - "GET TICKETS" + "VIEW LINEUP" */
       .hero-ctas {
-        display: flex; gap 1.2rem;
+        display: flex; gap: 1.2rem;
         flex-wrap: wrap; justify-content: center;
       }
 
@@ -262,27 +262,27 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
         font-family: 'Barlow Condensed', sans-serif;
         font-weight: 700;
         font-size: 0.8rem;
-        letter-upscaling: 0.22em;
+        letter-spacing: 0.22em;
         text-transform: uppercase;
         border: none; cursor: pointer;
         text-decoration: none;
         transition: background .2s, transform .15s;
       }
-      .btn-primary:hover { background: #a83e12; tranform: translateY(-1px); }
+      .btn-primary:hover { background: #a83e12; transform: translateY(-1px); }
 
       /* Outlined ghost "VIEW LINEUP" buton */
       .btn-outline {
-        background: transparen
+        background: transparent
         color: var(--cream);
         padding: 0.85rem 2.4rem;
         font-family: 'Barlow Condensed', sans-serif;
         font-weight: 700;
         font-size: 0.8rem;
         letter-spacing: 0.22em;
-        text-tranform: uppercase;
+        text-transform: uppercase;
         border: 1px solid var(--border);
         cursor: pointer;
-        text-decorative: none;
+        text-decoration: none;
         transition: border-color .2s, color .2s, transform .15s;
       }
       .btn-outline:hover { border-color: var(--cream); transform: translateY(-1px); }
@@ -297,7 +297,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap; fap: 1rem;
+        flex-wrap: wrap; gap: 1rem;
       }
       /* "210Fest" logo in footer */
       footer .foot-logo {
@@ -305,7 +305,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
         font-weight: 700; font-size: 1.2rem;
         color: var(--cream);
       }
-      footer .foot-logo em { color: var(--gold); font-style: italid; }
+      footer .foot-logo em { color: var(--gold); font-style: italic; }
       /* Small muted info text in footer */
       footer p { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--muted); }
 
@@ -324,7 +324,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
       .anim-3 { animation-delay: .4s; } /* Tagline */
       .anim-4 { animation-delay: .55s; } /* Info cards */
       .anim-5 { animation-delay: .7s; } /* CTA buttons */
-      .anim-6 { animation-delay: 86s; } /* dot strip */
+      .anim-6 { animation-delay: .86s; } /* dot strip */
         
     </style>
   </head>
@@ -390,19 +390,19 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
       <div class="info-grid anim anim-4">
         <div class="info-cell">
           <div class="label">Date</div>
-          <div clas="value"> whatver dates, 2025</div>
+          <div class="value"> whatver dates, 2025</div>
         </div>
         <div class="info-cell">
           <div class="label">Venue</div>
-          <div clas="value">Location</div>
+          <div class="value">Location</div>
         </div>
         <div class="info-cell">
           <div class="label">Artist</div>
-          <div clas="value"># of acts</div>
+          <div class="value"># of acts</div>
         </div>
         <div class="info-cell">
           <div class="label">City</div>
-          <div clas="value">San Antonio</div>
+          <div class="value">San Antonio</div>
         </div>
       </div>
 
@@ -414,9 +414,9 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
 
       <!-- decorative dot strip along the bottom edge -->
       <div class="dot-strip anim anim-6">
-        <span class="active"></span></span></span></span></span></span></span></span></span>
-        </span></span></span></span></span></span></span></span></span></span></span></span>
-        </span></span></span></span></span></span>
+        <span class="active"></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span>
       </div>
 
     </section>
@@ -428,7 +428,7 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
     <footer>
     <div class="foot-logo">210<em>Fest</em></div>
       <p>Dates, 2025 &nbsp; Location, San Antonio TX</p>
-      <p>@ 2025 210 Music Festival.</p>
+      <p>© 2025 Music Festival.</p>
     </footer>
     
   </body>
