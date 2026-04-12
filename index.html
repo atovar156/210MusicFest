@@ -1,0 +1,436 @@
+<!-- 
+SPCH 1321 - Social Media Marketing Project
+Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
+
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>210MusicFest - Music Festival</title>
+    <!------------------------------------------------------ 
+     FONTS USED
+    - 'Playfair display' - big hero title (210Music Festival)
+    - 'Cormorant Garamond' - tagline subtext text
+    - 'Barlow Condensed' - navbar, buttons, labels, body text
+    -------------------------------------------------------->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,600&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      /******************************************************
+       Reset
+       Removes default browser margin/padding on all elements
+      *******************************************************/
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      /********************************************
+      Colors Used (If group wants to retheme)
+      --dark = main page background
+      --darker = navbar + footer background
+      --gold = 210 number in title
+      --orange = buttons, accents, borders, labels
+      --cream = primary text color
+      --muted = secondary/dim text color
+      --border = subtle gold border lines
+      ********************************************/
+      :root {
+        --dark:    #1a1208;
+        --darker:  #110d05;
+        --gold:    #d4a017;
+        --orange:  #c94f1e;
+        --cream:   #f5ead5;
+        --muted:   #9e8a6a;
+        --border:  rgba(212,160,23,0.25);
+      }
+      
+      /* smooth scrolling when clicking nav links */
+      html {scroll-behavior: smooth; }
+
+      /*********************************************
+      BODY - base font and background for whole page
+      *********************************************/
+
+      body {
+        background: var(--dark);
+        color: var(--cream);
+        font-family: 'Barlow Condensed', sans-serif;
+        overflow-x: hidden;
+      }
+
+      /************************************************
+      NAVBAR - top bar with logo, links, and CTA button
+      ************************************************/
+
+      /* -- NAVBAR -- */
+      nav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0 2.5rem;
+        height: 60px;
+        background: var(--darker);
+        border-bottom: 2px solid var(--orange);
+      }
+
+      /* "210Fest" logo text in top left */
+      .nav-logo {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 1.4rem;
+        letter-spacing: 0.02em;
+        color: var(--cream);
+        text-decoration: none;
+      }
+
+      /* "Fest" part of logo is italic gold */
+      .nav-logo em { font-style: italic; color: var(--gold); }
+      
+      /* Navigation links - Lineup - Schedule, Tickets, About */
+      .nav-links { display: flex; gap: 2rem; list-style: none; }
+      .nav-links a {
+        text-decoration: none;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--cream); opacity: 0.8;
+        transition: opacity .2s;
+      }
+      .nav-links a:hover { opacity: 1; } /* brighten on hover */
+      
+      /* Orange "GET TICKETS" button in navbar */
+      .btn-nav {
+        background: var(--orange);
+        color: #fff;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        padding: 0.55rem 1.3rem;
+        border: none; cursor: pointer;
+        text-decoration: none;
+        transition: background .2s;
+      }
+      .btn-nav:hover { background: #a83e12; } /* darker on hover */
+
+      /**********************************************************
+      HERO SECTION - full screen center panel with title and info
+      **********************************************************/
+      .hero {
+        min-height: 100vh;         /* fills entire screen height */
+        display: flex; 
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center;
+        text-allign: center;
+        padding: 100px 2rem 4rem;  /* top padding clears the navbar */
+        position: relative;
+        overflow: hidden;
+      }
+
+      /*  decorative circles behind title || small inner, medium middle and large outer ring */
+      .hero::before, .hero::after, .hero-ring {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+      .hero::before { width: 520px; height: 520px; }
+      .hero::after  { width: 760px; height: 760px; opacity: .6; }
+      .hero-ring    { width: 1020px; height: 1020px; opacity: .35; }
+
+      /* Dot row at the bottom of the hero */
+      .dot-strip {
+        position: absolute; bottom: 24px; left: 50%;
+        transform: translate(-50%);
+        display: flex; gap: 10px;
+      }
+      .dot-strip span {
+        width: 8px; height: 8px; border-radius: 50%;
+        background: var(--orange); opacity: 0.45;
+      }
+      .dot-strip span.active { opacity: 1; } /* first dot is full bright */
+
+      /* "SAN ANTONIO, TEXAS" line with side rules */
+      .hero-eyebrow {
+        display: flex; align-items: center; gap: 1rem;
+        font-size: 0.70rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 0.4rem;
+      }
+      /* Orange horizontal lines on either side of eyebrow text */
+      .hero-eyebrow::before, .hero-eyebrow::after {
+        content: '';
+        flex: 1; height: 1px;
+        background: var(--orange); opacity: 0.6;
+        width: 70px;
+      }
+
+      /* "PROUDLY PRESENTS" text in orange */
+      .hero-sub {
+        font-size: 0.72rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 1.6rem;
+      }
+
+      /* Main title: "210Music Festival" */
+      .hero-title {
+        font-family: 'Playfair Display', serif;
+        line-height: 0.9;
+        margin-bottom: 0.15em;
+      }
+      /* The "210" italic gold, very large */
+      .hero-title .num{
+        display: inline;
+        font-size: clamp(5rem, 12vw, 9rem); /* scales with screen */
+        font-weight: 900;
+        color: var(--gold);
+        font-style: italic;
+      }
+      /* The "Music" cream, very large */
+      .hero-title .word {
+        display: inline;
+        font-size: clamp(5rem, 12vw, 9rem);
+        font-weight: 900;
+        color: var(--cream);
+      }
+      /* The "Festival" italic orange, on its own line */
+      .hero-title .festival {
+        display: block;
+        font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+        font-style: italic;
+        color: var(--orange);
+        margin-top: 0.05em;
+        text-align: center;
+      }
+
+      /* "Celebrating the next generation..." subtitle */
+      .hero-tagline {
+        font-family: 'Comorant Garamond', serif;
+        font-size: 1rem;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+        margin-top: 1.2rem;
+        margin-bottom: 2.6rem;
+      }
+
+      /* Info cards row - date / venue / artists / city */
+      .info-grid {
+        display: flex;
+        border: 1px solid var(--border);
+        margin-bottom: 2.6rem;
+        background: rgba(0,0,0, .25);
+      }
+      /* each individual info card cell */
+      .info-cell {
+        padding: 1rem 2.2rem;
+        border-right: 1px solid var(--border); /* divider between cards */
+        text-align: center;
+      }
+      .info-cell:last-child { border-right: none; } /* no divider after last card */
+      /* Small orange label above the value e.g. "DATE" */
+      .info-cell .label {
+        font-size: 0.6rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--orange);
+        margin-bottom: 0.35rem;
+      }
+      /* Bold value text " whatever made up date we have for festival" */
+      .info-cell .value {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-size: 1.15rem;
+        color: var(--cream);
+      }
+
+      /* CTA button row - "GET TICKETS" + "VIEW LINEUP" */
+      .hero-ctas {
+        display: flex; gap: 1.2rem;
+        flex-wrap: wrap; justify-content: center;
+      }
+
+      /* Solid orange "GET TICKETS" button */
+      .btn-primary {
+        background: var(--orange);
+        color: #fff;
+        padding: 0.85rem 2.4rem;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        border: none; cursor: pointer;
+        text-decoration: none;
+        transition: background .2s, transform .15s;
+      }
+      .btn-primary:hover { background: #a83e12; transform: translateY(-1px); }
+
+      /* Outlined ghost "VIEW LINEUP" buton */
+      .btn-outline {
+        background: transparent
+        color: var(--cream);
+        padding: 0.85rem 2.4rem;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        border: 1px solid var(--border);
+        cursor: pointer;
+        text-decoration: none;
+        transition: border-color .2s, color .2s, transform .15s;
+      }
+      .btn-outline:hover { border-color: var(--cream); transform: translateY(-1px); }
+
+      /*****************************************************
+      FOOTER - bottom bar with logo, location, and copyright
+      *****************************************************/
+      footer {
+        background: var(--darker);
+        border-top: 2px solid var(--orange); /* orange top accent line */
+        padding: 2.5rem 2.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; gap: 1rem;
+      }
+      /* "210Fest" logo in footer */
+      footer .foot-logo {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 700; font-size: 1.2rem;
+        color: var(--cream);
+      }
+      footer .foot-logo em { color: var(--gold); font-style: italic; }
+      /* Small muted info text in footer */
+      footer p { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--muted); }
+
+      /***********************************************
+      Animations - faded up entrance when page loads
+      Each .anim-N class staggers the delay so elements 
+      appear one after another from top to bottom
+      ************************************************/
+      @keyframes fadeUp {
+        from { opacity:0; transform: translateY(28px); }
+        to   { opacity:1; transform: translateY(0); }
+      }
+      .anim { opacity: 0; animation: fadeUp .7s ease forwards; }
+      .anim-1 { animation-delay: .1s; } /* "San Antonio, Texas" + "Proudly Presents" */
+      .anim-2 { animation-delay: .25s; } /* Main title */
+      .anim-3 { animation-delay: .4s; } /* Tagline */
+      .anim-4 { animation-delay: .55s; } /* Info cards */
+      .anim-5 { animation-delay: .7s; } /* CTA buttons */
+      .anim-6 { animation-delay: .86s; } /* dot strip */
+        
+    </style>
+  </head>
+  <body>
+
+  <!----------------------------------------------------------------
+    NAVBAR - fixed to the top of the page at all times.
+    Contains: logo (left) | nav links (center) | CTA buttons (right)
+    --------------------------------------------------------------->
+    <nav>
+      <!-- logo Links back to top of page -->
+      <a href="#" class="nav-logo">210<em>MusicFest</em></a>
+
+      <!-- Navigation links -->
+      <ul class="nav-links">
+        <li><a href="#lineup">Lineup</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#tickets">Tickets</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+
+      <!-- Orange CTA button -->
+      <a href="#tickets" class="btn-nav">Get Tickets</a>
+    </nav>
+
+
+  <!-----------------------------------------
+    HERO Section
+    Full screen centered panel
+    
+    Contains:
+    Decorative ring (div.herp-ring)
+    Eyebrow text: "San Antonio, Texas"
+    Sub tex: "Proudly Presents"
+    Main title: "210Music Festival"
+    Tagline 
+    Info cards: date, venue, artists, city
+    CTA buttons: Get tickets + view lineup
+    decorative dot row at bottom
+    --------------------------------------->
+    <section class="hero">
+
+      <!-- large decorative backgroung ring -->
+      <div class="hero-ring"></div>
+
+      <!-- SAN ANTONIO, TEXAS" with orange side lines -->
+      <p class="hero-eyebrow anim anim-1">San Antonio, Texas</p>
+
+      <!-- "Proudly Presents" in orange -->
+      <p class="hero-sub anim anim-1">Proudly Presents</p>
+
+      <!-- Main title block -->
+      <h1 class="hero-title anim anim-2">
+        <span class="num">210</span>
+        <span class="word">Music</span>
+        <span class="festival">Festival</span>
+      </h1>
+
+      <!-- Subtitle tagline -->
+      <p class="hero-tagline anim anim-3">Celebrating the next generation of SA artists</p>
+
+      <!-- Info cards row -->
+      <div class="info-grid anim anim-4">
+        <div class="info-cell">
+          <div class="label">Date</div>
+          <div class="value"> whatver dates, 2025</div>
+        </div>
+        <div class="info-cell">
+          <div class="label">Venue</div>
+          <div class="value">Location</div>
+        </div>
+        <div class="info-cell">
+          <div class="label">Artist</div>
+          <div class="value"># of acts</div>
+        </div>
+        <div class="info-cell">
+          <div class="label">City</div>
+          <div class="value">San Antonio</div>
+        </div>
+      </div>
+
+      <!-- CTA buttons -->
+      <div class="hero-ctas anim anim-5">
+        <a href="#tickets" class="btn-primary">Get Tickets</a> <!-- solid orange -->
+        <a href="#lineup" class="btn-outline">View Lineup</a> <!-- ghost.outlined -->
+      </div>
+
+      <!-- decorative dot strip along the bottom edge -->
+      <div class="dot-strip anim anim-6">
+        <span class="active"></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </div>
+
+    </section>
+
+    <!--------------------------------------------
+    FOOTER
+    bottom bar with logo | event info | copyright|
+    --------------------------------------------->
+    <footer>
+    <div class="foot-logo">210<em>MusicFest</em></div>
+      <p>Dates, 2025 &nbsp; Location, San Antonio TX</p>
+      <p>© 2025 Music Festival.</p>
+    </footer>
+    
+  </body>
+</html>
