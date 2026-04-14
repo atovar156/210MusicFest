@@ -70,18 +70,19 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
         border-bottom: 2px solid var(--orange);
       }
 
-      /* "210Fest" logo text in top left */
+      /* "210Fest" logo image in top left */
       .nav-logo {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-weight: 700;
-        font-size: 1.4rem;
-        letter-spacing: 0.02em;
-        color: var(--cream);
+        display: flex;
+        align-items: center;
         text-decoration: none;
+        height: 100%;
       }
 
-      /* "Fest" part of logo is italic gold */
-      .nav-logo em { font-style: italic; color: var(--gold); }
+      .nav-logo img {
+        width: 125px;
+        height: auto;
+        object-fit: contain;
+      }
       
       /* Navigation links - Lineup - Schedule, Tickets, About */
       .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -336,19 +337,19 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
     Contains: logo (left) | nav links (center) | CTA buttons (right)
     --------------------------------------------------------------->
     <nav>
-      <!-- logo Links back to top of page -->
-      <a href="#" class="nav-logo">210<em>MusicFest</em></a>
+      <!-- logo Links back to home page -->
+      <a href="index.html" class="nav-logo"><img src="Logo for Company horizontal light version.png" alt="210 Music Fest Logo"></a>
 
       <!-- Navigation links -->
       <ul class="nav-links">
-        <li><a href="#lineup">Lineup</a></li>
-        <li><a href="#schedule">Schedule</a></li>
-        <li><a href="#tickets">Tickets</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="lineup.html">Lineup</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
 
       <!-- Orange CTA button -->
-      <a href="#tickets" class="btn-nav">Get Tickets</a>
+      <a href="tickets.html" class="btn-nav">Get Tickets</a>
     </nav>
 
 
@@ -409,8 +410,8 @@ Abel Tovar, Brianna Ramirez, David Beard, Vincent Garcia -->
 
       <!-- CTA buttons -->
       <div class="hero-ctas anim anim-5">
-        <a href="#tickets" class="btn-primary">Get Tickets</a> <!-- solid orange -->
-        <a href="#lineup" class="btn-outline">View Lineup</a> <!-- ghost.outlined -->
+        <a href="tickets.html" class="btn-primary">Get Tickets</a> <!-- solid orange -->
+        <a href="lineup.html" class="btn-outline">View Lineup</a> <!-- ghost.outlined -->
       </div>
 
       <!-- decorative dot strip along the bottom edge -->

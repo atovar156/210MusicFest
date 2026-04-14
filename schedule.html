@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>210MusicFest - Schedule</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,600&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root { --dark:#1a1208; --darker:#110d05; --gold:#d4a017; --orange:#c94f1e; --cream:#f5ead5; --muted:#9e8a6a; --border:rgba(212,160,23,0.25); }
+      html { scroll-behavior: smooth; }
+      body { min-height: 100vh; background: var(--dark); color: var(--cream); font-family:'Barlow Condensed',sans-serif; }
+      nav { display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:60px; background:var(--darker); border-bottom:2px solid var(--orange); }
+      .nav-logo { color:var(--cream); text-decoration:none; font-weight:700; letter-spacing:0.02em; }
+      .nav-logo em { color:var(--gold); font-style:italic; }
+      .nav-logo img {
+        width: 120px;
+        height: auto;
+        object-fit: contain;
+      }
+      .nav-links { display:flex; gap:1.8rem; list-style:none; }
+      .nav-links a, .btn-nav { color:var(--cream); text-decoration:none; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; opacity:.85; }
+      .nav-links a:hover, .btn-nav:hover { opacity:1; }
+      .btn-nav { background:var(--orange); padding:.55rem 1.2rem; border:none; font-weight:700; }
+      .page-header { padding: 5rem 2rem 2rem; text-align:center; }
+      .page-header h1 { font-family:'Playfair Display',serif; font-size:clamp(3.5rem,6vw,5.5rem); line-height:1; margin-bottom:1rem; }
+      .page-header p { color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; font-size:0.8rem; }
+      .content { max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }
+      .schedule-table { width:100%; border-collapse:collapse; margin-top:1.5rem; }
+      .schedule-table th, .schedule-table td { padding:1rem; border:1px solid var(--border); }
+      .schedule-table th { text-align:left; color:var(--orange); font-weight:700; letter-spacing:0.09em; text-transform:uppercase; }
+      .schedule-table td { color:var(--cream); }
+      .back-link { display:inline-block; margin-top:1.5rem; color:var(--gold); text-decoration:none; letter-spacing:0.12em; }
+      footer { padding:2rem; text-align:center; color:var(--muted); font-size:.75rem; border-top:1px solid var(--border); }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="nav-logo"><img src="Logo for Company horizontal light version.png" alt="210 Music Fest Logo"></a>
+      <ul class="nav-links">
+        <li><a href="lineup.html">Lineup</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a href="tickets.html" class="btn-nav">Get Tickets</a>
+    </nav>
+    <header class="page-header">
+      <h1>Festival Schedule</h1>
+      <p>Plan your day at 210MusicFest with stage times and set details.</p>
+    </header>
+    <main class="content">
+      <table class="schedule-table">
+        <thead>
+          <tr><th>Time</th><th>Stage</th><th>Artist</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>12:00 PM</td><td>Main Stage</td><td>Opening Act</td></tr>
+          <tr><td>1:30 PM</td><td>Side Stage</td><td>Local Artist 1</td></tr>
+          <tr><td>3:00 PM</td><td>Main Stage</td><td>Featured Headliner</td></tr>
+          <tr><td>1:30 PM</td><td>Side Stage</td><td>Local Artist 2</td></tr>
+        </tbody>
+      </table>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </main>
+    <footer>© 2025 Music Festival • San Antonio, TX</footer>
+  </body>
+</html>
