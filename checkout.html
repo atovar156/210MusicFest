@@ -56,75 +56,13 @@
       <p>Complete your order</p>
     </header>
     <main class="content">
-      <form id="checkoutForm" class="checkout-container">
-        <!-- Left Side: Billing Info -->
-        <div>
-          <div class="checkout-section">
-            <h2>Billing Information</h2>
-            <div class="form-group">
-              <label for="fullName">Full Name</label>
-              <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required placeholder="john@example.com">
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" required placeholder="(210) 555-1234">
-            </div>
-            <div class="form-group">
-              <label for="address">Address</label>
-              <input type="text" id="address" name="address" required placeholder="123 Main St">
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" id="city" name="city" required placeholder="San Antonio">
-              </div>
-              <div class="form-group">
-                <label for="state">State</label>
-                <input type="text" id="state" name="state" required placeholder="TX">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="zip">ZIP Code</label>
-              <input type="text" id="zip" name="zip" required placeholder="78201">
-            </div>
-          </div>
+      <div class="checkout-container">
+        <div class="checkout-section" style="grid-column: 1 / -1;">
+          <h2>Order Summary</h2>
+          <div id="orderSummary" class="order-summary"></div>
+          <button class="btn-place-order" onclick="placeOrder()">Place Order</button>
         </div>
-
-        <!-- Right Side: Payment Info and Summary -->
-        <div>
-          <div class="checkout-section">
-            <h2>Payment Information</h2>
-            <div class="form-group">
-              <label for="cardName">Cardholder Name</label>
-              <input type="text" id="cardName" name="cardName" required placeholder="John Doe">
-            </div>
-            <div class="form-group">
-              <label for="cardNumber">Card Number</label>
-              <input type="text" id="cardNumber" name="cardNumber" required placeholder="1234 5678 9012 3456" maxlength="19">
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="expiry">Expiry Date</label>
-                <input type="text" id="expiry" name="expiry" required placeholder="MM/YY" maxlength="5">
-              </div>
-              <div class="form-group">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" required placeholder="123" maxlength="3">
-              </div>
-            </div>
-          </div>
-
-          <div class="checkout-section">
-            <h2>Order Summary</h2>
-            <div id="orderSummary" class="order-summary"></div>
-            <button type="submit" class="btn-place-order">Place Order</button>
-          </div>
-        </div>
-      </form>
+      </div>
     </main>
     <footer>© 2025 Music Festival • San Antonio, TX</footer>
 
@@ -166,44 +104,9 @@
         document.getElementById('orderSummary').innerHTML = summaryHTML;
       }
       
-      document.getElementById('checkoutForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Collect form data
-        const formData = {
-          fullName: document.getElementById('fullName').value,
-          email: document.getElementById('email').value,
-          phone: document.getElementById('phone').value,
-          address: document.getElementById('address').value,
-          city: document.getElementById('city').value,
-          state: document.getElementById('state').value,
-          zip: document.getElementById('zip').value,
-          cardName: document.getElementById('cardName').value,
-          cardNumber: document.getElementById('cardNumber').value.slice(-4)
-        };
-        
-        // Store order info
-        localStorage.setItem('orderInfo', JSON.stringify(formData));
-        
-        // Redirect to confirmation
+      function placeOrder() {
         window.location.href = 'confirmation.html';
-      });
-      
-      // Format card number input
-      document.getElementById('cardNumber').addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\s/g, '');
-        let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
-        e.target.value = formatted;
-      });
-      
-      // Format expiry input
-      document.getElementById('expiry').addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length >= 2) {
-          value = value.slice(0, 2) + '/' + value.slice(2, 4);
-        }
-        e.target.value = value;
-      });
+      }
       
       loadOrderSummary();
     </script>

@@ -73,42 +73,6 @@
         </div>
 
         <div class="receipt-section">
-          <h3>Billing Information</h3>
-          <div class="receipt-row">
-            <label>Name:</label>
-            <span id="billName"></span>
-          </div>
-          <div class="receipt-row">
-            <label>Email:</label>
-            <span id="billEmail"></span>
-          </div>
-          <div class="receipt-row">
-            <label>Address:</label>
-            <span id="billAddress"></span>
-          </div>
-          <div class="receipt-row">
-            <label>Phone:</label>
-            <span id="billPhone"></span>
-          </div>
-        </div>
-
-        <div class="receipt-section">
-          <h3>Payment Method</h3>
-          <div class="receipt-row">
-            <label>Card Type:</label>
-            <span id="cardType"></span>
-          </div>
-          <div class="receipt-row">
-            <label>Last 4 Digits:</label>
-            <span id="lastFour"></span>
-          </div>
-          <div class="receipt-row">
-            <label>Authorization Code:</label>
-            <span id="authCode"></span>
-          </div>
-        </div>
-
-        <div class="receipt-section">
           <h3>Order Items</h3>
           <div id="orderItems"></div>
         </div>
@@ -139,17 +103,11 @@
         return 'TXN' + Math.random().toString(36).substr(2, 9).toUpperCase() + Date.now().toString().slice(-6);
       }
       
-      function generateAuthCode() {
-        return Math.random().toString(36).substr(2, 6).toUpperCase();
-      }
-      
       function loadConfirmation() {
         const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const orderInfo = JSON.parse(localStorage.getItem('orderInfo')) || {};
         
-        // Generate fake transaction IDs
+        // Generate fake transaction ID
         const transactionId = generateTransactionId();
-        const authCode = generateAuthCode();
         const orderNumber = 'ORD' + Date.now().toString().slice(-8);
         
         // Calculate totals
@@ -176,7 +134,7 @@
             <span>$${total.toFixed(2)}</span>
           </div>
           <div class="receipt-row">
-            <label>Tax (8.625%)</label>
+            <label>Tax</label>
             <span>$${tax.toFixed(2)}</span>
           </div>
         `;
@@ -184,13 +142,6 @@
         // Populate page
         document.getElementById('orderNumber').textContent = 'Order Number: ' + orderNumber;
         document.getElementById('transactionId').textContent = transactionId;
-        document.getElementById('billName').textContent = orderInfo.fullName || 'N/A';
-        document.getElementById('billEmail').textContent = orderInfo.email || 'N/A';
-        document.getElementById('billAddress').textContent = orderInfo.address + ', ' + orderInfo.city + ', ' + orderInfo.state + ' ' + orderInfo.zip;
-        document.getElementById('billPhone').textContent = orderInfo.phone || 'N/A';
-        document.getElementById('cardType').textContent = 'Visa';
-        document.getElementById('lastFour').textContent = '****';
-        document.getElementById('authCode').textContent = authCode;
         document.getElementById('orderItems').innerHTML = itemsHTML;
         document.getElementById('totalAmount').textContent = '$' + finalTotal.toFixed(2);
         
