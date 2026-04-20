@@ -32,6 +32,32 @@
       .schedule-table td { color:var(--cream); }
       .back-link { display:inline-block; margin-top:1.5rem; color:var(--gold); text-decoration:none; letter-spacing:0.12em; }
       footer { padding:2rem; text-align:center; color:var(--muted); font-size:.75rem; border-top:1px solid var(--border); }
+      
+      /* Mobile Responsive Styles */
+      @media (max-width: 768px) {
+        nav { padding: 0 1rem; }
+        .nav-logo img { width: 100px; }
+        .nav-links { gap: 0.8rem; }
+        .nav-links a, .btn-nav { font-size: 0.65rem; }
+        .page-header { padding: 4rem 1rem 1.5rem; }
+        .page-header h1 { font-size: 2.5rem; }
+        .content { padding: 0 1rem 3rem; }
+        .schedule-table th, .schedule-table td { padding: 0.8rem 0.5rem; font-size: 0.9rem; }
+      }
+      
+      @media (max-width: 480px) {
+        nav { padding: 0 0.5rem; height: 50px; }
+        .nav-logo img { width: 80px; }
+        .nav-links { gap: 0.4rem; }
+        .nav-links a, .btn-nav { font-size: 0.6rem; padding: 0.4rem 0.6rem; }
+        .page-header { padding: 3rem 0.5rem 1rem; }
+        .page-header h1 { font-size: 2rem; }
+        .content { padding: 0 0.5rem 2rem; }
+        .schedule-table { font-size: 0.8rem; }
+        .schedule-table th, .schedule-table td { padding: 0.6rem 0.3rem; }
+        .schedule-table th { font-size: 0.75rem; }
+        footer { padding: 1.5rem 0.5rem; font-size: 0.7rem; }
+      }
     </style>
   </head>
   <body>
