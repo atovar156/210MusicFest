@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>210MusicFest - Checkout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,600&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root { --dark:#1a1208; --darker:#110d05; --gold:#d4a017; --orange:#c94f1e; --cream:#f5ead5; --muted:#9e8a6a; --border:rgba(212,160,23,0.25); }
+      html { scroll-behavior: smooth; }
+      body { min-height: 100vh; background: var(--dark); color: var(--cream); font-family:'Barlow Condensed',sans-serif; }
+      nav { display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:60px; background:var(--darker); border-bottom:2px solid var(--orange); }
+      .nav-logo { color:var(--cream); text-decoration:none; font-weight:700; letter-spacing:0.02em; }
+      .nav-logo em { color:var(--gold); font-style:italic; }
+      .nav-logo img { width: 100px; height: auto; object-fit: contain; }
+      .nav-links { display:flex; gap:1.8rem; list-style:none; }
+      .nav-links a, .btn-nav { color:var(--cream); text-decoration:none; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; opacity:.85; }
+      .nav-links a:hover, .btn-nav:hover { opacity:1; }
+      .btn-nav { background:var(--orange); padding:.55rem 1.2rem; border:none; font-weight:700; cursor: pointer; }
+      .page-header { padding: 5rem 2rem 2rem; text-align:center; }
+      .page-header h1 { font-family:'Playfair Display',serif; font-size:clamp(3.5rem,6vw,5.5rem); line-height:1; margin-bottom:1rem; }
+      .page-header p { color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; font-size:0.8rem; }
+      .content { max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }
+      .checkout-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+      @media (max-width: 768px) { .checkout-container { grid-template-columns: 1fr; } }
+      .checkout-section { background: rgba(255,255,255,.05); border: 1px solid var(--border); border-radius: 1rem; padding: 2rem; }
+      .checkout-section h2 { font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--orange); }
+      .form-group { margin-bottom: 1.5rem; }
+      .form-group label { display: block; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; color: var(--cream); }
+      .form-group input, .form-group select { width: 100%; padding: 0.8rem; background: rgba(0,0,0,.3); border: 1px solid var(--border); border-radius: 0.5rem; color: var(--cream); font-family: 'Barlow Condensed', sans-serif; }
+      .form-group input::placeholder { color: var(--muted); }
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .order-summary { background: rgba(255,255,255,.08); border: 1px solid var(--border); border-radius: 0.5rem; padding: 1.5rem; margin-bottom: 1.5rem; }
+      .summary-item { display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 0.9rem; }
+      .summary-item.total { border-top: 1px solid var(--border); padding-top: 1rem; font-size: 1.1rem; color: var(--gold); font-weight: 700; }
+      .btn-place-order { width: 100%; background: var(--orange); color: #fff; padding: 1rem; border: none; border-radius: 0.5rem; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; transition: background 0.2s; }
+      .btn-place-order:hover { background: #a83e12; }
+      footer { padding:2rem; text-align:center; color:var(--muted); font-size:.75rem; border-top:1px solid var(--border); }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="nav-logo"><img src="Logo for Company horizontal light version.png" alt="210 Music Fest Logo"></a>
+      <ul class="nav-links">
+        <li><a href="lineup.html">Lineup</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="merchandise.html">Merchandise</a></li>
+        <li><a href="tickets.html">Tickets</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a href="cart.html" class="btn-nav">Cart</a>
+    </nav>
+    <header class="page-header">
+      <h1>Checkout</h1>
+      <p>Complete your order</p>
+    </header>
+    <main class="content">
+      <form id="checkoutForm" class="checkout-container">
+        <!-- Left Side: Billing Info -->
+        <div>
+          <div class="checkout-section">
+            <h2>Billing Information</h2>
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="john@example.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(210) 555-1234">
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" id="address" name="address" required placeholder="123 Main St">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required placeholder="San Antonio">
+              </div>
+              <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" required placeholder="TX">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="zip">ZIP Code</label>
+              <input type="text" id="zip" name="zip" required placeholder="78201">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Payment Info and Summary -->
+        <div>
+          <div class="checkout-section">
+            <h2>Payment Information</h2>
+            <div class="form-group">
+              <label for="cardName">Cardholder Name</label>
+              <input type="text" id="cardName" name="cardName" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="cardNumber">Card Number</label>
+              <input type="text" id="cardNumber" name="cardNumber" required placeholder="1234 5678 9012 3456" maxlength="19">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expiry">Expiry Date</label>
+                <input type="text" id="expiry" name="expiry" required placeholder="MM/YY" maxlength="5">
+              </div>
+              <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required placeholder="123" maxlength="3">
+              </div>
+            </div>
+          </div>
+
+          <div class="checkout-section">
+            <h2>Order Summary</h2>
+            <div id="orderSummary" class="order-summary"></div>
+            <button type="submit" class="btn-place-order">Place Order</button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <footer>© 2025 Music Festival • San Antonio, TX</footer>
+
+    <script>
+      function loadOrderSummary() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let total = 0;
+        let summaryHTML = '';
+        
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          total += itemTotal;
+          summaryHTML += `
+            <div class="summary-item">
+              <span>${item.name} x${item.quantity}</span>
+              <span>$${itemTotal.toFixed(2)}</span>
+            </div>
+          `;
+        });
+        
+        const tax = total * 0.08625;
+        const finalTotal = total + tax;
+        
+        summaryHTML += `
+          <div class="summary-item">
+            <span>Subtotal:</span>
+            <span>$${total.toFixed(2)}</span>
+          </div>
+          <div class="summary-item">
+            <span>Tax:</span>
+            <span>$${tax.toFixed(2)}</span>
+          </div>
+          <div class="summary-item total">
+            <span>Total:</span>
+            <span>$${finalTotal.toFixed(2)}</span>
+          </div>
+        `;
+        
+        document.getElementById('orderSummary').innerHTML = summaryHTML;
+      }
+      
+      document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Collect form data
+        const formData = {
+          fullName: document.getElementById('fullName').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          address: document.getElementById('address').value,
+          city: document.getElementById('city').value,
+          state: document.getElementById('state').value,
+          zip: document.getElementById('zip').value,
+          cardName: document.getElementById('cardName').value,
+          cardNumber: document.getElementById('cardNumber').value.slice(-4)
+        };
+        
+        // Store order info
+        localStorage.setItem('orderInfo', JSON.stringify(formData));
+        
+        // Redirect to confirmation
+        window.location.href = 'confirmation.html';
+      });
+      
+      // Format card number input
+      document.getElementById('cardNumber').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\s/g, '');
+        let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
+        e.target.value = formatted;
+      });
+      
+      // Format expiry input
+      document.getElementById('expiry').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length >= 2) {
+          value = value.slice(0, 2) + '/' + value.slice(2, 4);
+        }
+        e.target.value = value;
+      });
+      
+      loadOrderSummary();
+    </script>
+  </body>
+</html>

@@ -26,10 +26,13 @@
       .page-header h1 { font-family:'Playfair Display',serif; font-size:clamp(3.5rem,6vw,5.5rem); line-height:1; margin-bottom:1rem; }
       .page-header p { color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; font-size:0.8rem; }
       .content { max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }
-      .ticket-card { background: rgba(255,255,255,.05); border:1px solid var(--border); border-radius:1rem; padding:2rem; margin-bottom:1.5rem; }
+      .ticket-card { background: rgba(255,255,255,.05); border:1px solid var(--border); border-radius:1rem; padding:2rem; margin-bottom:1.5rem; display: flex; justify-content: space-between; align-items: center; }
+      .ticket-info { flex: 1; }
       .ticket-card h2 { font-size:1.6rem; margin-bottom:1rem; }
       .ticket-card p { color:var(--cream); line-height:1.7; margin-bottom:.9rem; }
       .ticket-card strong { color:var(--gold); }
+      .btn-add-ticket { background: var(--orange); color: #fff; padding:.6rem 1.5rem; border:none; border-radius:.5rem; cursor:pointer; font-family:'Barlow Condensed',sans-serif; font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase; transition: background .2s; }
+      .btn-add-ticket:hover { background: #a83e12; }
       .back-link { display:inline-block; margin-top:1.5rem; color:var(--gold); text-decoration:none; letter-spacing:0.12em; }
       footer { padding:2rem; text-align:center; color:var(--muted); font-size:.75rem; border-top:1px solid var(--border); }
     </style>
@@ -52,17 +55,46 @@
     </header>
     <main class="content">
       <section class="ticket-card">
-        <h2>General Admission</h2>
-        <p><strong>$$$</strong> — Access to whatever we have for general admission.</p>
-        <p>Other amenities may be available.</p>
+        <div class="ticket-info">
+          <h2>General Admission</h2>
+          <p><strong>$65</strong> — Access to whatever we have for general admission.</p>
+          <p>Other amenities may be available.</p>
+        </div>
+        <button class="btn-add-ticket" onclick="addToCart('General Admission - Ticket', 65)">Add to Cart</button>
       </section>
       <section class="ticket-card">
-        <h2>VIP Pass</h2>
-        <p><strong>$$$</strong> — if we decide on a VIP pass</p>
-        <p>.........</p>
+        <div class="ticket-info">
+          <h2>VIP Pass</h2>
+          <p><strong>$125</strong> — if we decide on a VIP pass</p>
+          <p>Premium seating and exclusive access to VIP lounge</p>
+        </div>
+        <button class="btn-add-ticket" onclick="addToCart('VIP Pass - Ticket', 125)">Add to Cart</button>
       </section>
-      <a href="index.html" class="back-link">← Back to Home</a>
+      <a href="cart.html" class="back-link">→ View Cart</a>
     </main>
     <footer>© 2025 Music Festival • San Antonio, TX</footer>
+
+    <script>
+      function addToCart(itemName, price) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Check if item already exists in cart
+        const existingItem = cart.find(item => item.name === itemName);
+        
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({
+            name: itemName,
+            price: price,
+            quantity: 1
+          });
+        }
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(itemName + ' added to cart!');
+        window.location.href = 'cart.html';
+      }
+    </script>
   </body>
 </html>
