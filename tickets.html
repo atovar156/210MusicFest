@@ -35,6 +35,35 @@
       .btn-add-ticket:hover { background: #a83e12; }
       .back-link { display:inline-block; margin-top:1.5rem; color:var(--gold); text-decoration:none; letter-spacing:0.12em; }
       footer { padding:2rem; text-align:center; color:var(--muted); font-size:.75rem; border-top:1px solid var(--border); }
+      
+      /* Mobile Responsive Styles */
+      @media (max-width: 768px) {
+        nav { padding: 0 1rem; }
+        .nav-logo img { width: 80px; }
+        .nav-links { gap: 1rem; }
+        .nav-links a, .btn-nav { font-size: 0.7rem; }
+        .page-header { padding: 4rem 1rem 1.5rem; }
+        .page-header h1 { font-size: 2.5rem; }
+        .content { padding: 0 1rem 3rem; }
+        .ticket-card { padding: 1.5rem; flex-direction: column; align-items: stretch; }
+        .ticket-info { margin-bottom: 1rem; }
+        .btn-add-ticket { align-self: stretch; }
+      }
+      
+      @media (max-width: 480px) {
+        nav { padding: 0 0.5rem; height: 50px; }
+        .nav-logo img { width: 70px; }
+        .nav-links { gap: 0.5rem; }
+        .nav-links a, .btn-nav { font-size: 0.65rem; padding: 0.4rem 0.8rem; }
+        .page-header { padding: 3rem 0.5rem 1rem; }
+        .page-header h1 { font-size: 2rem; }
+        .content { padding: 0 0.5rem 2rem; }
+        .ticket-card { padding: 1.2rem; }
+        .ticket-card h2 { font-size: 1.3rem; }
+        .ticket-card p { font-size: 0.9rem; }
+        .btn-add-ticket { padding: 0.6rem 1rem; font-size: 0.8rem; }
+        footer { padding: 1.5rem 0.5rem; font-size: 0.7rem; }
+      }
     </style>
   </head>
   <body>

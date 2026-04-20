@@ -37,6 +37,39 @@
       .btn-place-order { width: 100%; background: var(--orange); color: #fff; padding: 1rem; border: none; border-radius: 0.5rem; cursor: pointer; font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; transition: background 0.2s; }
       .btn-place-order:hover { background: #a83e12; }
       footer { padding:2rem; text-align:center; color:var(--muted); font-size:.75rem; border-top:1px solid var(--border); }
+      
+      /* Mobile Responsive Styles */
+      @media (max-width: 768px) {
+        nav { padding: 0 1rem; }
+        .nav-logo img { width: 80px; }
+        .nav-links { gap: 1rem; }
+        .nav-links a, .btn-nav { font-size: 0.7rem; }
+        .page-header { padding: 4rem 1rem 1.5rem; }
+        .page-header h1 { font-size: 2.5rem; }
+        .content { padding: 0 1rem 3rem; }
+        .checkout-section { padding: 1.5rem; }
+        .order-summary { padding: 1.2rem; }
+        .summary-item { font-size: 0.9rem; }
+        .summary-item.total { font-size: 1rem; }
+        .btn-place-order { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+      }
+      
+      @media (max-width: 480px) {
+        nav { padding: 0 0.5rem; height: 50px; }
+        .nav-logo img { width: 70px; }
+        .nav-links { gap: 0.5rem; }
+        .nav-links a, .btn-nav { font-size: 0.65rem; padding: 0.4rem 0.8rem; }
+        .page-header { padding: 3rem 0.5rem 1rem; }
+        .page-header h1 { font-size: 2rem; }
+        .content { padding: 0 0.5rem 2rem; }
+        .checkout-section { padding: 1.2rem; }
+        .checkout-section h2 { font-size: 1.1rem; }
+        .order-summary { padding: 1rem; }
+        .summary-item { font-size: 0.85rem; margin-bottom: 0.8rem; }
+        .summary-item.total { font-size: 0.95rem; }
+        .btn-place-order { padding: 0.7rem 1.2rem; font-size: 0.85rem; }
+        footer { padding: 1.5rem 0.5rem; font-size: 0.7rem; }
+      }
     </style>
   </head>
   <body>
