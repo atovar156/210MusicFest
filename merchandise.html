@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>210MusicFest - Schedule</title>
+    <title>210MusicFest - Merchandise</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,600&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <style>
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -14,7 +14,7 @@
       .nav-logo { color:var(--cream); text-decoration:none; font-weight:700; letter-spacing:0.02em; }
       .nav-logo em { color:var(--gold); font-style:italic; }
       .nav-logo img {
-        width: 120px;
+        width: 100px;
         height: auto;
         object-fit: contain;
       }
@@ -26,10 +26,13 @@
       .page-header h1 { font-family:'Playfair Display',serif; font-size:clamp(3.5rem,6vw,5.5rem); line-height:1; margin-bottom:1rem; }
       .page-header p { color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; font-size:0.8rem; }
       .content { max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }
-      .schedule-table { width:100%; border-collapse:collapse; margin-top:1.5rem; }
-      .schedule-table th, .schedule-table td { padding:1rem; border:1px solid var(--border); }
-      .schedule-table th { text-align:left; color:var(--orange); font-weight:700; letter-spacing:0.09em; text-transform:uppercase; }
-      .schedule-table td { color:var(--cream); }
+      .merch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+      .merch-item { background: rgba(255,255,255,.05); border:1px solid var(--border); border-radius:1rem; padding:1.5rem; text-align: center; }
+      .merch-item h3 { font-size:1.3rem; margin-bottom:.8rem; }
+      .merch-item p { color:var(--cream); line-height:1.6; margin-bottom:1rem; }
+      .merch-item .price { font-size: 1.4rem; color:var(--gold); font-weight:700; margin-bottom:1rem; }
+      .btn-add { background: var(--orange); color: #fff; padding:.6rem 1.5rem; border:none; border-radius:.5rem; cursor:pointer; font-family:'Barlow Condensed',sans-serif; font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase; transition: background .2s; }
+      .btn-add:hover { background: #a83e12; }
       .back-link { display:inline-block; margin-top:1.5rem; color:var(--gold); text-decoration:none; letter-spacing:0.12em; }
       footer { padding:2rem; text-align:center; color:var(--muted); font-size:.75rem; border-top:1px solid var(--border); }
     </style>
@@ -47,21 +50,48 @@
       <a href="tickets.html" class="btn-nav">Get Tickets</a>
     </nav>
     <header class="page-header">
-      <h1>Festival Schedule</h1>
-      <p>Plan your day at 210MusicFest with stage times and set details.</p>
+      <h1>Merchandise</h1>
+      <p>Show your support with official 210MusicFest gear.</p>
     </header>
     <main class="content">
-      <table class="schedule-table">
-        <thead>
-          <tr><th>Time</th><th>Stage</th><th>Artist</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>12:00 PM</td><td>Main Stage</td><td>Opening Act</td></tr>
-          <tr><td>1:30 PM</td><td>Side Stage</td><td>Local Artist 1</td></tr>
-          <tr><td>3:00 PM</td><td>Main Stage</td><td>Featured Headliner</td></tr>
-          <tr><td>1:30 PM</td><td>Side Stage</td><td>Local Artist 2</td></tr>
-        </tbody>
-      </table>
+      <div class="merch-grid">
+        <div class="merch-item">
+          <h3>Festival T-Shirt</h3>
+          <p>Premium cotton tee with official 210MusicFest design.</p>
+          <div class="price">$25</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+        <div class="merch-item">
+          <h3>Festival Hoodie</h3>
+          <p>Comfortable hoodie perfect for festival season.</p>
+          <div class="price">$50</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+        <div class="merch-item">
+          <h3>Festival Hat</h3>
+          <p>Adjustable hat with embroidered logo.</p>
+          <div class="price">$30</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+        <div class="merch-item">
+          <h3>Festival Poster</h3>
+          <p>Limited edition poster for collectors.</p>
+          <div class="price">$15</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+        <div class="merch-item">
+          <h3>Festival Stickers</h3>
+          <p>Pack of 5 vinyl stickers with various designs.</p>
+          <div class="price">$8</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+        <div class="merch-item">
+          <h3>Festival Water Bottle</h3>
+          <p>Reusable water bottle to stay hydrated.</p>
+          <div class="price">$20</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
       <a href="index.html" class="back-link">← Back to Home</a>
     </main>
     <footer>© 2025 Music Festival • San Antonio, TX</footer>
