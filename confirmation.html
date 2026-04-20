@@ -70,6 +70,22 @@
         <div class="transaction-id">
           <label>Transaction ID:</label>
           <span id="transactionId"></span>
+          <button class="copy-btn" onclick="copyTransactionId()">Copy</button>
+        </div>
+
+        <div class="notification-section">
+          <h3>Order Notification</h3>
+          <p>Your transaction ID has been generated. In a real website, this would be sent to your email and phone.</p>
+          <div class="notification-demo">
+            <div class="demo-email">
+              <strong>Email sent to:</strong> customer@example.com<br>
+              <em>Subject: Your 210MusicFest Order Confirmation</em>
+            </div>
+            <div class="demo-sms">
+              <strong>SMS sent to:</strong> (210) 555-1234<br>
+              <em>Message: Your order TXN[ID] has been confirmed!</em>
+            </div>
+          </div>
         </div>
 
         <div class="receipt-section">
