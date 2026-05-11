@@ -26,10 +26,21 @@
       .page-header h1 { font-family:'Playfair Display',serif; font-size:clamp(3.5rem,6vw,5.5rem); line-height:1; margin-bottom:1rem; }
       .page-header p { color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; font-size:0.8rem; }
       .content { max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }
-      .merch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-      .merch-item { background: rgba(255,255,255,.05); border:1px solid var(--border); border-radius:1rem; padding:1.5rem; text-align: center; }
-      .merch-item h3 { font-size:1.3rem; margin-bottom:.8rem; }
-      .merch-item p { color:var(--cream); line-height:1.6; margin-bottom:1rem; }
+      .merch-grid { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+      .merch-item { background: rgba(255,255,255,.05); border:1px solid var(--border); border-radius:1rem; padding:1.5rem; text-align: center; max-width: 240px; }
+      .merch-item h3 { font-size:1.1rem; margin-bottom:.5rem; }
+      .merch-item p { color:var(--cream); line-height:1.6; margin-bottom:.5rem; font-size:0.85rem; }
+      .product-images { display: flex; justify-content: center; margin-bottom: 2rem; position: relative; }
+      .product-image { display: none; text-align: center; }
+      .product-image.active { display: block; }
+      .product-image img { width: 100%; max-width: 200px; height: 200px; border-radius: 0.5rem; object-fit: cover; background: rgba(212,160,23,0.1); }
+      .image-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+      .image-nav { display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 1rem; }
+      .image-nav button { background: none; color: var(--orange); border: none; font-size: 1.5rem; cursor: pointer; transition: color 0.2s; }
+      .image-nav button:hover { color: var(--gold); }
+      .image-dots { display: flex; gap: 0.8rem; }
+      .dot { width: 0.8rem; height: 0.8rem; border-radius: 50%; background: rgba(212,160,23,0.3); cursor: pointer; transition: background 0.2s; }
+      .dot.active { background: var(--orange); }
       .merch-item .price { font-size: 1.4rem; color:var(--gold); font-weight:700; margin-bottom:1rem; }
       .btn-add { background: var(--orange); color: #fff; padding:.6rem 1.5rem; border:none; border-radius:.5rem; cursor:pointer; font-family:'Barlow Condensed',sans-serif; font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase; transition: background .2s; }
       .btn-add:hover { background: #a83e12; }
@@ -89,10 +100,28 @@
     </header>
     <main class="content">
       <div class="merch-grid">
-        <div class="merch-item">
+      <div class="merch-item">
           <h3>Festival T-Shirt</h3>
-          <p></p>
-          <div class="price"></div>
+          <div class="product-images" id="productImage">
+            <div class="product-image active">
+              <img src="Front-2-1.png" alt="Festival T-Shirt Front">
+              <div class="image-label">Front</div>
+            </div>
+            <div class="product-image">
+              <img src="Back-2.png" alt="Festival T-Shirt Back">
+              <div class="image-label">Back</div>
+            </div>
+          </div>
+          <div class="image-nav">
+            <button onclick="previousImage()">◀</button>
+            <div class="image-dots">
+              <div class="dot active" onclick="goToImage(0)"></div>
+              <div class="dot" onclick="goToImage(1)"></div>
+            </div>
+            <button onclick="nextImage()">▶</button>
+          </div>
+          <p>High-quality cotton t-shirt featuring our official festival logo. Available in multiple sizes.</p>
+          <div class="price">$30</div>
           <button class="btn-add" onclick="addToCart('Festival T-Shirt', 0)">Add to Cart</button>
         </div>
       </div>
@@ -101,6 +130,67 @@
     <footer>© 2025 Music Festival • San Antonio, TX</footer>
 
     <script>
+      let currentImageIndex = 0;
+      const images = document.querySelectorAll('.product-image');
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      function showImage(index) {
+        images.forEach((img, i) => {
+          img.classList.remove('active');
+          if (i === index) {
+            img.classList.add('active');
+          }
+        });
+        // Update dots
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+          dot.classList.remove('active');
+          if (i === index) {
+            dot.classList.add('active');
+          }
+        });
+      }
+
+      function goToImage(index) {
+        currentImageIndex = index;
+        showImage(currentImageIndex);
+      }
+
+      function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        showImage(currentImageIndex);
+      }
+
+      function previousImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        showImage(currentImageIndex);
+      }
+
+      // Touch/Swipe functionality
+      const productImageContainer = document.getElementById('productImage');
+      productImageContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, false);
+
+      productImageContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, false);
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            nextImage(); // Swiped left
+          } else {
+            previousImage(); // Swiped right
+          }
+        }
+      }
+
       function addToCart(itemName, price) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         
