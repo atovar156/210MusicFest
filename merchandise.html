@@ -10,45 +10,47 @@
       :root { --dark:#1a1208; --darker:#110d05; --gold:#d4a017; --orange:#c94f1e; --cream:#f5ead5; --muted:#9e8a6a; --border:rgba(212,160,23,0.25); }
       html { scroll-behavior: smooth; }
       body { min-height: 100vh; background: var(--dark); color: var(--cream); font-family:'Barlow Condensed',sans-serif; padding-top: 60px; }
+
       nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:60px; background:var(--darker); border-bottom:2px solid var(--orange); }
       .nav-logo { color:var(--cream); text-decoration:none; font-weight:700; letter-spacing:0.02em; }
-      .nav-logo em { color:var(--gold); font-style:italic; }
-      .nav-logo img {
-        width: 100px;
-        height: auto;
-        object-fit: contain;
-      }
+      .nav-logo img { width: 100px; height: auto; object-fit: contain; }
       .nav-links { display:flex; gap:1.8rem; list-style:none; }
       .nav-links a, .btn-nav { color:var(--cream); text-decoration:none; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; opacity:.85; }
       .nav-links a:hover, .btn-nav:hover { opacity:1; }
       .btn-nav { background:var(--orange); padding:.55rem 1.2rem; border:none; font-weight:700; }
+
       .page-header { padding: 5rem 2rem 2rem; text-align:center; }
       .page-header h1 { font-family:'Playfair Display',serif; font-size:clamp(3.5rem,6vw,5.5rem); line-height:1; margin-bottom:1rem; }
       .page-header p { color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; font-size:0.8rem; }
-      .content { max-width: 900px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+      .content { max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; }
+
       .merch-grid { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
-      .merch-item { background: rgba(255,255,255,.05); border:1px solid var(--border); border-radius:1rem; padding:1.5rem; text-align: center; max-width: 240px; }
+
+      .merch-item { background: rgba(255,255,255,.05); border:1px solid var(--border); border-radius:1rem; padding:1.5rem; text-align: center; width: 240px; }
       .merch-item h3 { font-size:1.1rem; margin-bottom:.5rem; }
       .merch-item p { color:var(--cream); line-height:1.6; margin-bottom:.5rem; font-size:0.85rem; }
-      .product-images { display: flex; justify-content: center; margin-bottom: 2rem; position: relative; }
+
+      .product-images { display: flex; justify-content: center; margin-bottom: 1rem; position: relative; }
       .product-image { display: none; text-align: center; }
       .product-image.active { display: block; }
       .product-image img { width: 100%; max-width: 200px; height: 200px; border-radius: 0.5rem; object-fit: cover; background: rgba(212,160,23,0.1); }
       .image-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
-      .image-nav { display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 1rem; }
+
+      .image-nav { display: flex; gap: 1rem; justify-content: center; align-items: center; margin-top: 0.5rem; margin-bottom: 1rem; }
       .image-nav button { background: none; color: var(--orange); border: none; font-size: 0.9rem; cursor: pointer; transition: color 0.2s; }
-      .dot { width: 0.20rem; height: 0.20rem; border-radius: 50%; background: rgba(212,160,23,0.3); cursor: pointer; transition: background 0.2s; }
       .image-nav button:hover { color: var(--gold); }
-      .image-dots { display: flex; gap: 0.8rem; }
-      .dot { width: 0.8rem; height: 0.8rem; border-radius: 50%; background: rgba(212,160,23,0.3); cursor: pointer; transition: background 0.2s; }
+      .image-dots { display: flex; gap: 0.5rem; align-items: center; }
+      .dot { width: 0.35rem; height: 0.35rem; border-radius: 50%; background: rgba(212,160,23,0.3); cursor: pointer; transition: background 0.2s; }
       .dot.active { background: var(--orange); }
+
       .merch-item .price { font-size: 1.4rem; color:var(--gold); font-weight:700; margin-bottom:1rem; }
       .btn-add { background: var(--orange); color: #fff; padding:.6rem 1.5rem; border:none; border-radius:.5rem; cursor:pointer; font-family:'Barlow Condensed',sans-serif; font-size:0.9rem; letter-spacing:0.1em; text-transform:uppercase; transition: background .2s; }
       .btn-add:hover { background: #a83e12; }
+
       .back-link { display:inline-block; margin-top:1.5rem; color:var(--gold); text-decoration:none; letter-spacing:0.12em; }
       footer { padding:2rem; text-align:center; color:var(--muted); font-size:.75rem; border-top:1px solid var(--border); }
-      
-      /* Mobile Responsive Styles */
+
       @media (max-width: 768px) {
         nav { padding: 0 1rem; }
         .nav-logo img { width: 80px; }
@@ -58,12 +60,9 @@
         .page-header { padding: 4rem 1rem 1.5rem; }
         .page-header h1 { font-size: 2.5rem; }
         .content { padding: 0 1rem 3rem; }
-        .merch-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-        .merch-item { padding: 1.2rem; }
-        .merch-item h3 { font-size: 1.1rem; }
-        .btn-add { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+        .merch-item { width: 200px; padding: 1.2rem; }
       }
-      
+
       @media (max-width: 480px) {
         body { padding-top: 50px; }
         nav { padding: 0 0.5rem; height: 50px; }
@@ -74,11 +73,7 @@
         .page-header { padding: 3rem 0.5rem 1rem; }
         .page-header h1 { font-size: 2rem; }
         .content { padding: 0 0.5rem 2rem; }
-        .merch-item { padding: 1rem; }
-        .merch-item h3 { font-size: 1rem; }
-        .merch-item p { font-size: 0.9rem; }
-        .price { font-size: 1.2rem; }
-        .btn-add { padding: 0.5rem 1rem; font-size: 0.8rem; }
+        .merch-item { width: 100%; max-width: 300px; padding: 1rem; }
         footer { padding: 1.5rem 0.5rem; font-size: 0.7rem; }
       }
     </style>
@@ -95,15 +90,71 @@
       </ul>
       <a href="tickets.html" class="btn-nav">Get Tickets</a>
     </nav>
+
     <header class="page-header">
       <h1>Merchandise</h1>
       <p>Show your support with official 210MusicFest gear.</p>
     </header>
+
     <main class="content">
       <div class="merch-grid">
-      <div class="merch-item">
-          <h3>Festival T-Shirt</h3>
-          <div class="product-images" id="productImage">
+
+        <!-- Shirt 1 -->
+        <div class="merch-item">
+          <h3>Womens Black Festival T-Shirt</h3>
+          <div class="product-images" id="productImage1">
+            <div class="product-image active">
+              <img src="WFront.png" alt="Festival T-Shirt Front">
+              <div class="image-label">Front</div>
+            </div>
+            <div class="product-image">
+              <img src="WBack.png" alt="Festival T-Shirt Back">
+              <div class="image-label">Back</div>
+            </div>
+          </div>
+          <div class="image-nav">
+            <button onclick="previousImage(1)">◀</button>
+            <div class="image-dots">
+              <div class="dot active" onclick="goToImage(1,0)"></div>
+              <div class="dot" onclick="goToImage(1,1)"></div>
+            </div>
+            <button onclick="nextImage(1)">▶</button>
+          </div>
+          <p>High-quality cotton t-shirt featuring our official festival logo. Available in multiple sizes.</p>
+          <div class="price">$30</div>
+          <button class="btn-add" onclick="addToCart('Festival T-Shirt', 30)">Add to Cart</button>
+        </div>
+
+        <!-- Shirt 2 -->
+        <div class="merch-item">
+          <h3>Mens Black Festival T-Shirt</h3>
+          <div class="product-images" id="productImage2">
+            <div class="product-image active">
+              <img src="MBlackFront.png" alt="Festival T-Shirt Front">
+              <div class="image-label">Front</div>
+            </div>
+            <div class="product-image">
+              <img src="MBlackBack.png" alt="Festival T-Shirt Back">
+              <div class="image-label">Back</div>
+            </div>
+          </div>
+          <div class="image-nav">
+            <button onclick="previousImage(2)">◀</button>
+            <div class="image-dots">
+              <div class="dot active" onclick="goToImage(2,0)"></div>
+              <div class="dot" onclick="goToImage(2,1)"></div>
+            </div>
+            <button onclick="nextImage(2)">▶</button>
+          </div>
+          <p>High-quality cotton t-shirt featuring our official festival logo. Available in multiple sizes.</p>
+          <div class="price">$30</div>
+          <button class="btn-add" onclick="addToCart('Festival T-Shirt', 30)">Add to Cart</button>
+        </div>
+
+        <!-- Shirt 3 -->
+        <div class="merch-item">
+          <h3>Mens Brown Festival T-Shirt</h3>
+          <div class="product-images" id="productImage3">
             <div class="product-image active">
               <img src="Front-2-1.png" alt="Festival T-Shirt Front">
               <div class="image-label">Front</div>
@@ -114,100 +165,98 @@
             </div>
           </div>
           <div class="image-nav">
-            <button onclick="previousImage()">◀</button>
+            <button onclick="previousImage(3)">◀</button>
             <div class="image-dots">
-              <div class="dot active" onclick="goToImage(0)"></div>
-              <div class="dot" onclick="goToImage(1)"></div>
+              <div class="dot active" onclick="goToImage(3,0)"></div>
+              <div class="dot" onclick="goToImage(3,1)"></div>
             </div>
-            <button onclick="nextImage()">▶</button>
+            <button onclick="nextImage(3)">▶</button>
           </div>
           <p>High-quality cotton t-shirt featuring our official festival logo. Available in multiple sizes.</p>
           <div class="price">$30</div>
-          <button class="btn-add" onclick="addToCart('Festival T-Shirt', 0)">Add to Cart</button>
+          <button class="btn-add" onclick="addToCart('Festival T-Shirt', 30)">Add to Cart</button>
         </div>
+
+        <!-- Shirt 4 -->
+        <div class="merch-item">
+          <h3>Womens Brown Festival T-Shirt</h3>
+          <div class="product-images" id="productImage4">
+            <div class="product-image active">
+              <img src="Wbrownfront.png" alt="Festival T-Shirt Front">
+              <div class="image-label">Front</div>
+            </div>
+            <div class="product-image">
+              <img src="Back-2.png" alt="Festival T-Shirt Back">
+              <div class="image-label">Back</div>
+            </div>
+          </div>
+          <div class="image-nav">
+            <button onclick="previousImage(4)">◀</button>
+            <div class="image-dots">
+              <div class="dot active" onclick="goToImage(4,0)"></div>
+              <div class="dot" onclick="goToImage(4,1)"></div>
+            </div>
+            <button onclick="nextImage(4)">▶</button>
+          </div>
+          <p>High-quality cotton t-shirt featuring our official festival logo. Available in multiple sizes.</p>
+          <div class="price">$30</div>
+          <button class="btn-add" onclick="addToCart('Festival T-Shirt', 30)">Add to Cart</button>
+        </div>
+
       </div>
       <a href="index.html" class="back-link">← Back to Home</a>
     </main>
-    <footer>© 2025 Music Festival • San Antonio, TX</footer>
+
+    <footer>© 2026 Music Festival • San Antonio, TX</footer>
 
     <script>
-      let currentImageIndex = 0;
-      const images = document.querySelectorAll('.product-image');
-      let touchStartX = 0;
-      let touchEndX = 0;
+      const carousels = {};
 
-      function showImage(index) {
-        images.forEach((img, i) => {
-          img.classList.remove('active');
-          if (i === index) {
-            img.classList.add('active');
-          }
-        });
-        // Update dots
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, i) => {
-          dot.classList.remove('active');
-          if (i === index) {
-            dot.classList.add('active');
-          }
-        });
+      [1, 2, 3, 4].forEach(id => {
+        const container = document.getElementById('productImage' + id);
+        carousels[id] = {
+          images: container.querySelectorAll('.product-image'),
+          dots: container.closest('.merch-item').querySelectorAll('.dot'),
+          current: 0
+        };
+
+        container.addEventListener('touchstart', (e) => {
+          container._touchStartX = e.changedTouches[0].screenX;
+        }, false);
+
+        container.addEventListener('touchend', (e) => {
+          const diff = container._touchStartX - e.changedTouches[0].screenX;
+          if (Math.abs(diff) > 50) diff > 0 ? nextImage(id) : previousImage(id);
+        }, false);
+      });
+
+      function showImage(id, index) {
+        const c = carousels[id];
+        c.images.forEach((img, i) => img.classList.toggle('active', i === index));
+        c.dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        c.current = index;
       }
 
-      function goToImage(index) {
-        currentImageIndex = index;
-        showImage(currentImageIndex);
+      function goToImage(id, index) { showImage(id, index); }
+
+      function nextImage(id) {
+        const c = carousels[id];
+        showImage(id, (c.current + 1) % c.images.length);
       }
 
-      function nextImage() {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        showImage(currentImageIndex);
-      }
-
-      function previousImage() {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        showImage(currentImageIndex);
-      }
-
-      // Touch/Swipe functionality
-      const productImageContainer = document.getElementById('productImage');
-      productImageContainer.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, false);
-
-      productImageContainer.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      }, false);
-
-      function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-        
-        if (Math.abs(diff) > swipeThreshold) {
-          if (diff > 0) {
-            nextImage(); // Swiped left
-          } else {
-            previousImage(); // Swiped right
-          }
-        }
+      function previousImage(id) {
+        const c = carousels[id];
+        showImage(id, (c.current - 1 + c.images.length) % c.images.length);
       }
 
       function addToCart(itemName, price) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        // Check if item already exists in cart
         const existingItem = cart.find(item => item.name === itemName);
-        
         if (existingItem) {
           existingItem.quantity += 1;
         } else {
-          cart.push({
-            name: itemName,
-            price: price,
-            quantity: 1
-          });
+          cart.push({ name: itemName, price: price, quantity: 1 });
         }
-        
         localStorage.setItem('cart', JSON.stringify(cart));
         alert(itemName + ' added to cart!');
         window.location.href = 'cart.html';
